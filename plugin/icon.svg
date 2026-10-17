@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Suggest question">
+  <rect width="48" height="48" rx="12" fill="#1F2A44"/>
+  <path d="M12 15.5a4 4 0 0 1 4-4h16a4 4 0 0 1 4 4v11a4 4 0 0 1-4 4H24.5L18 36v-5.5h-2a4 4 0 0 1-4-4z"
+        fill="none" stroke="#7AA2FF" stroke-width="1.8" stroke-linejoin="round"/>
+  <g fill="#7AA2FF">
+    <circle cx="19" cy="21" r="1.9"/>
+    <circle cx="24" cy="21" r="1.9"/>
+    <circle cx="29" cy="21" r="1.9"/>
+  </g>
+  <path d="M33.5 28.5l1.2 2.6 2.6 1.2-2.6 1.2-1.2 2.6-1.2-2.6-2.6-1.2 2.6-1.2z" fill="#FFC773"/>
+</svg>

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Suggest Question",
+    "description": "Lets the model place a guessed next message in your input box as an editable draft."
+  }
+}
