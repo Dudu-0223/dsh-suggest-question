@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "Suggest Question",
-    "description": "Lets the model place a guessed next message in your input box as an editable draft."
+    "description": "Guesses your next message after a turn ends and shows it as a light hint in the composer; press Tab to fill it."
   }
 }
