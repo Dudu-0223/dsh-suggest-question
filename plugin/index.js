@@ -9,7 +9,7 @@
  */
 
 /** Loader entry name. */
-export const name = '@local/dsh-suggest-question'
+export const name = '@dudu-0223/dsh-suggest-question'
 
 /** Host services: live Agent lookup, the model route, and the browser carrier. */
 export const inject = ['agents', 'llm', 'webServer']

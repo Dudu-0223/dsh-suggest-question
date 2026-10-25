@@ -213,7 +213,7 @@ function stubFetch(question) {
 
 test('the Host half registers the prediction route', async () => {
   const host = await import(`${new URL('../index.js', HERE).href}`)
-  assert.equal(host.name, '@local/dsh-suggest-question')
+  assert.equal(host.name, '@dudu-0223/dsh-suggest-question')
   assert.deepEqual(host.inject, ['agents', 'llm', 'webServer'])
   const { ctx, routes } = hostContext()
   host.apply(ctx)
@@ -341,4 +341,21 @@ test('reads the plugin declaration', () => {
   assert.equal(pkg.dsh.client.platform, 'web')
   assert.equal(pkg.exports['./client'], './client.js')
   assert.ok(pkg.files.includes('client.js'))
+})
+
+test('every registration id matches the published package name', () => {
+  // DSH keys the Client module and the Host loader entry by the boot-graph row
+  // name, which is the package name. A copy-pasted id from the local dev plugin
+  // registers the bundle where the page never looks, so keep all three in step.
+  const pkg = JSON.parse(readFileSync(`${PACKAGE_DIR}/package.json`, 'utf8'))
+  const registration = readFileSync(`${PACKAGE_DIR}/client.js`, 'utf8')
+    .match(/__ModuleLoader__\.load\(\{\s*id: '([^']+)'/)
+  assert.ok(registration !== null, 'client.js registers a module id')
+  assert.equal(registration[1], pkg.name, 'the Client module id is the package name')
+  const host = readFileSync(`${PACKAGE_DIR}/index.js`, 'utf8').match(/export const name = '([^']+)'/)
+  assert.ok(host !== null, 'index.js exports a loader entry name')
+  assert.equal(host[1], pkg.name, 'the Host entry name is the package name')
+  const row = readFileSync(`${PACKAGE_DIR}/cordis.patch.yml`, 'utf8').match(/name: '([^']+)'/)
+  assert.ok(row !== null, 'cordis.patch.yml inserts a named row')
+  assert.equal(row[1], pkg.name, 'the boot-graph row name is the package name')
 })

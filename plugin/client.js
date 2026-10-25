@@ -9,7 +9,7 @@
  * Host half (index.js) serves the prediction route.
  */
 window.__ModuleLoader__.load({
-  id: '@local/dsh-suggest-question',
+  id: '@dudu-0223/dsh-suggest-question',
   factory(require) {
     const React = require('react')
     const h = React.createElement
